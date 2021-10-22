@@ -3,7 +3,18 @@ import React from "react";
 const Landing = () => {
 	return (
 		<div className="landing">
-			<h1>Welcome to the landing page!</h1>
+			<div className="landing__desc">
+				<h1>Welcome to the landing page!</h1>
+				<p>Please log in or sign up to see your dashboard.</p>
+			</div>
+			<div className="landing__buttons">
+				<a href="/login" className="button button-primary">
+					Log In
+				</a>
+				<a href="/signup" className="button button-outline">
+					Sign Up
+				</a>
+			</div>
 		</div>
 	);
 };
