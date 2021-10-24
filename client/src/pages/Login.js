@@ -8,7 +8,7 @@ const Login = () => {
 				<div className="login__form">
 					<form className="mt-8 space-y-6" action="#" method="POST">
 						<div className="rounded-md shadow-sm -space-y-px">
-							<div>
+							<div className="input">
 								<label htmlFor="email-address" className="sr-only">
 									Email address
 								</label>
@@ -22,7 +22,7 @@ const Login = () => {
 									placeholder="Email address"
 								/>
 							</div>
-							<div>
+							<div className="input">
 								<label htmlFor="password" className="sr-only">
 									Password
 								</label>
@@ -38,15 +38,16 @@ const Login = () => {
 							</div>
 						</div>
 
-						<div>
-							<button type="submit" className="button button-primary">
-								Log in
-							</button>
-						</div>
+						<button type="submit" className="button button-primary">
+							Log in
+						</button>
 					</form>
+					<p className="text-white">
+						Don't have an account? <a href="/signup">Sign up!</a>
+					</p>
 				</div>
 				<div className="login__socials">
-					<h4>Or log in with existing accounts</h4>
+					<p className="text-white">Or log in with an existing account</p>
 
 					<button type="button" className="button text-white bg-google hover:bg-white hover:text-gray-900">
 						Log in with Google

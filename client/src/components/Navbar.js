@@ -4,8 +4,12 @@ const Navbar = () => {
 	return (
 		<div className="navbar">
 			<nav className="navbar__nav">
-				<a href="/">Home</a>
-				<a href="/dashboard">Dashboard</a>
+				<a className="navbar__a" href="/">
+					Home
+				</a>
+				<a className="navbar__a" href="/dashboard">
+					Dashboard
+				</a>
 			</nav>
 		</div>
 	);
