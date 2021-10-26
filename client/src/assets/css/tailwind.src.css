@@ -28,6 +28,10 @@ a:not(.navbar__a) {
 	@apply text-blurple underline font-bold;
 }
 
+ul {
+	@apply ml-6;
+}
+
 .main {
 	@apply w-4/5 mt-6 mx-auto p-4 text-center;
 }
@@ -106,4 +110,15 @@ div.input:first-of-type input {
 
 div.input:last-of-type input {
 	@apply rounded-b-md;
+}
+
+/* Dashboard.js */
+.dashboard__body {
+	@apply my-8 text-left bg-white p-4;
+}
+
+.dashboard__body h1,
+.dashboard__body h2,
+.dashboard__body h3 {
+	@apply text-gray-900;
 }

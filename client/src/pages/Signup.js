@@ -50,7 +50,7 @@ const Signup = () => {
 						Already have an account? <a href="/login">Log in!</a>
 					</p>
 				</div>
-				<div className="login__socials">
+				<div className="signup__socials">
 					<p className="text-white">Or sign up with an existing account</p>
 
 					<button type="button" className="button text-white bg-google hover:bg-white hover:text-gray-900">
