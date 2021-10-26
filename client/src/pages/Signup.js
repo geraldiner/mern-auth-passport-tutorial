@@ -27,12 +27,12 @@ const Signup = () => {
 								<input id="password" name="password" type="password" autoComplete="current-password" required placeholder="Password" />
 							</div>
 							<div className="input">
-								<label htmlFor="confirm-password" className="sr-only">
+								<label htmlFor="confirmPassword" className="sr-only">
 									Confirm Password
 								</label>
 								<input
 									id="confirm-password"
-									name="confirm-password"
+									name="confirmPassword"
 									type="password"
 									autoComplete="current-password"
 									required
