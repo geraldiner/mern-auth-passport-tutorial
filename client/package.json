@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "run-p start:**:*",
-    "start:watch:tailwind": "onchange tailwind.config.js ./src/**/tailwind.src.css -e ./src/**/css/tailwind.css -- npm run build:tailwind",
+    "start:watch:tailwind": "onchange tailwind.config.js ./src/**/tailwind.src.css -- npm run build:tailwind",
     "build:tailwind": "postcss build ./src/assets/css/tailwind.src.css -o ./src/assets/css/tailwind.css",
     "start:react": "react-scripts start",
     "build:react": "react-scripts build",

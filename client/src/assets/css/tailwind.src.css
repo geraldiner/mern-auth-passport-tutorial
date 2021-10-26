@@ -89,6 +89,21 @@ h3 {
 }
 
 /* Login.js */
-.login__socials {
+.login__socials,
+.signup__socials {
 	@apply my-8 space-y-2;
+}
+
+/* Signup.js */
+
+.input input {
+	@apply appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm;
+}
+
+div.input:first-of-type input {
+	@apply rounded-t-md;
+}
+
+div.input:last-of-type input {
+	@apply rounded-b-md;
 }
