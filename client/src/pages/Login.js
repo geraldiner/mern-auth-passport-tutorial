@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
+import { login } from "../features/appSlice";
 
-const Login = ({ history }) => {
+const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const history = useHistory();
+	const dispatch = useDispatch();
 
 	const url = "http://localhost:8888/auth/login";
 
@@ -22,8 +27,13 @@ const Login = ({ history }) => {
 				email,
 				password,
 			});
-			console.log(res);
 			if (res.data.success) {
+				dispatch(
+					login({
+						name: res.data.user.name,
+						email: res.data.user.email,
+					}),
+				);
 				history.push("/dashboard");
 			}
 		} catch (error) {

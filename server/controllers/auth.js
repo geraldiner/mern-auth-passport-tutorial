@@ -33,8 +33,8 @@ module.exports = {
 						res.status(401).json({ "message": "Invalid credentials." });
 					} else {
 						const token = await user.getSignedToken();
-						const { name } = user;
-						res.status(200).json({ success: true, token, user: { name } });
+						const { name, email } = user;
+						res.status(200).json({ success: true, token, user: { name, email } });
 					}
 				}
 			} catch (error) {
