@@ -22,23 +22,24 @@ module.exports = {
 			res.status(400).json({ "message": "Please provide an email." });
 		} else if (!password) {
 			res.status(400).json({ "message": "Please provide a password." });
-		}
-		try {
-			const user = await User.findOne({ email }).select("+password");
-			if (!user) {
-				res.status(404).json({ "message": "Invalid credentials." });
-			} else {
-				const isMatch = await user.comparePassword(password);
-				if (!isMatch) {
-					res.status(401).json({ "message": "Invalid credentials." });
+		} else {
+			try {
+				const user = await User.findOne({ email }).exec();
+				if (!user) {
+					res.status(404).json({ "message": "Invalid credentials." });
 				} else {
-					const token = await user.getSignedToken();
-					res.status(200).json({ success: true, token });
+					const isMatch = await user.comparePassword(password);
+					if (!isMatch) {
+						res.status(401).json({ "message": "Invalid credentials." });
+					} else {
+						const token = await user.getSignedToken();
+						const { name } = user;
+						res.status(200).json({ success: true, token, user: { name } });
+					}
 				}
+			} catch (error) {
+				next(error);
 			}
-		} catch (error) {
-			next(error);
 		}
-		res.status(200).json({ data: { "message": "login route" } });
 	},
 };

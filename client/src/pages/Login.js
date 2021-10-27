@@ -1,12 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import Axios from "axios";
 
-const Login = () => {
+const Login = ({ history }) => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const url = "http://localhost:8888/auth/login";
+
+	const handleChange = e => {
+		if (e.target.name === "email") {
+			setEmail(e.target.value);
+		} else if (e.target.name === "password") {
+			setPassword(e.target.value);
+		}
+	};
+
+	const handleSubmit = async e => {
+		e.preventDefault();
+		try {
+			const res = await Axios.post(url, {
+				email,
+				password,
+			});
+			console.log(res);
+			if (res.data.success) {
+				history.push("/dashboard");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<div className="main">
 			<h2>Log in to your account</h2>
 			<div className="login">
 				<div className="login__form">
-					<form className="mt-8 space-y-6" action="#" method="POST">
+					<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
 						<div className="rounded-md shadow-sm -space-y-px">
 							<div className="input">
 								<label htmlFor="email-address" className="sr-only">
@@ -20,6 +50,7 @@ const Login = () => {
 									required
 									className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
 									placeholder="Email address"
+									onChange={e => handleChange(e)}
 								/>
 							</div>
 							<div className="input">
@@ -34,6 +65,7 @@ const Login = () => {
 									required
 									className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
 									placeholder="Password"
+									onChange={e => handleChange(e)}
 								/>
 							</div>
 						</div>
