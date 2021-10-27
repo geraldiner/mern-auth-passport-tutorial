@@ -1,3 +1,4 @@
+const passport = require("passport");
 const User = require("../models/User");
 
 module.exports = {
@@ -23,22 +24,18 @@ module.exports = {
 		} else if (!password) {
 			res.status(400).json({ "message": "Please provide a password." });
 		} else {
-			try {
-				const user = await User.findOne({ email }).exec();
-				if (!user) {
-					res.status(404).json({ "message": "Invalid credentials." });
+			const user = await User.findOne({ email }).exec();
+			if (user) {
+				const isMatch = await user.comparePassword(password);
+				if (isMatch) {
+					const signedToken = await user.getSignedToken();
+					const { name, email } = user;
+					res.status(200).json({ success: true, token: `Bearer ${signedToken}`, user: { name, email } });
 				} else {
-					const isMatch = await user.comparePassword(password);
-					if (!isMatch) {
-						res.status(401).json({ "message": "Invalid credentials." });
-					} else {
-						const token = await user.getSignedToken();
-						const { name, email } = user;
-						res.status(200).json({ success: true, token, user: { name, email } });
-					}
+					res.status(400).json({ success: false, message: "Password is incorrect" });
 				}
-			} catch (error) {
-				next(error);
+			} else {
+				res.status(400).json({ success: false, message: "There is no account with this email" });
 			}
 		}
 	},

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/appSlice";
 
-const Dashboard = () => {
+const Dashboard = ({ history }) => {
 	const user = useSelector(selectUser);
+
 	return (
 		<div className="main">
 			<div className="dashboard">

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
 import { login } from "../features/appSlice";
 
-const Login = () => {
+const Login = ({ history }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const history = useHistory();
 	const dispatch = useDispatch();
 
 	const url = "http://localhost:8888/auth/login";
@@ -28,6 +26,7 @@ const Login = () => {
 				password,
 			});
 			if (res.data.success) {
+				localStorage.setItem("user", JSON.stringify({ token: res.data.token, ...res.data.user }));
 				dispatch(
 					login({
 						name: res.data.user.name,

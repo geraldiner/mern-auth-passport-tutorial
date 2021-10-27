@@ -1,9 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/appSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectUser, logout } from "../features/appSlice";
 
 const Navbar = () => {
 	const user = useSelector(selectUser);
+	const dispatch = useDispatch();
+
+	const handleLogout = () => {
+		dispatch(logout());
+	};
 
 	return (
 		<div className="navbar">
@@ -17,7 +22,7 @@ const Navbar = () => {
 						<a className="navbar__a" href="/dashboard">
 							Dashboard
 						</a>
-						<a className="navbar__a" href="/logout">
+						<a className="navbar__a" href="/" onClick={handleLogout}>
 							Logout
 						</a>
 					</>

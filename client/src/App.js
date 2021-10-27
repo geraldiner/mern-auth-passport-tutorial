@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { selectUser, login } from "./features/appSlice";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/appSlice";
 
 /* Components */
 import Navbar from "./components/Navbar";
@@ -10,20 +10,8 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
-const App = () => {
+const App = ({ history }) => {
 	const user = useSelector(selectUser);
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		if (user) {
-			dispatch(
-				login({
-					name: user.name,
-					email: user.email,
-				}),
-			);
-		}
-	}, []);
 
 	return (
 		<Router>
