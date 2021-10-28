@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/appSlice";
 
-const Landing = ({ history }) => {
+const Landing = () => {
 	const user = useSelector(selectUser);
+	const history = useHistory();
 
 	useEffect(() => {
 		if (user) {
 			history.push("/dashboard");
 		}
 	}, []);
+
 	return (
 		<div className="main">
 			<div className="landing">

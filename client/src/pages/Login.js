@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../features/appSlice";
+import { useHistory } from "react-router";
 
-const Login = ({ history }) => {
+const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const url = "http://localhost:8888/auth/login";
 

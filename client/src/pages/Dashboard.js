@@ -4,6 +4,7 @@ import { selectUser } from "../features/appSlice";
 
 const Dashboard = () => {
 	const user = useSelector(selectUser);
+
 	return (
 		<div className="main">
 			<div className="dashboard">

@@ -8,7 +8,7 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
-const App = ({ history }) => {
+const App = () => {
 	return (
 		<Router>
 			<div className="app">
