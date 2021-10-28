@@ -1,25 +1,42 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/appSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router";
+import { selectUser, logout } from "../features/appSlice";
 
 const Navbar = () => {
 	const user = useSelector(selectUser);
+	const dispatch = useDispatch();
+	const history = useHistory();
+
+	const handleLogout = () => {
+		dispatch(logout());
+		history.push("/");
+	};
+
+	const handleClick = e => {
+		if (e.target.innerText === "Home") {
+			history.push("/");
+		} else if (e.target.innerText === "Dashboard") {
+			history.push("/dashboard");
+		}
+	};
 
 	return (
 		<div className="navbar">
 			<nav className="navbar__nav">
+				<button className="navbar__a" type="button" onClick={handleClick}>
+					Home
+				</button>
 				{!user ? (
-					<a className="navbar__a" href="/">
-						Home
-					</a>
+					""
 				) : (
 					<>
-						<a className="navbar__a" href="/dashboard">
+						<button type="button" className="navbar__a" onClick={handleClick}>
 							Dashboard
-						</a>
-						<a className="navbar__a" href="/">
+						</button>
+						<button type="button" className="navbar__a" onClick={handleLogout}>
 							Logout
-						</a>
+						</button>
 					</>
 				)}
 			</nav>

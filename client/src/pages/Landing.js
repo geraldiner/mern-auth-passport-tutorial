@@ -1,6 +1,18 @@
 import React from "react";
+import { useHistory, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/appSlice";
 
 const Landing = () => {
+	const user = useSelector(selectUser);
+	const history = useHistory();
+
+	useEffect(() => {
+		if (user) {
+			history.push("/dashboard");
+		}
+	});
 	return (
 		<div className="main">
 			<div className="landing">
@@ -9,12 +21,12 @@ const Landing = () => {
 					<p>Please log in or sign up to see your dashboard.</p>
 				</div>
 				<div className="landing__buttons">
-					<a href="/login" className="button button-primary">
+					<Link to="/login" className="button button-primary">
 						Log In
-					</a>
-					<a href="/signup" className="button button-outline">
+					</Link>
+					<Link to="/signup" className="button button-outline">
 						Sign Up
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>

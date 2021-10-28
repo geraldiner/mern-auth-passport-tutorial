@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { login } from "../features/appSlice";
 import { useHistory } from "react-router";
 
@@ -86,7 +87,7 @@ const Login = () => {
 						</button>
 					</form>
 					<p className="text-white">
-						Don't have an account? <a href="/signup">Sign up!</a>
+						Don't have an account? <Link to="/signup">Sign up!</Link>
 					</p>
 				</div>
 				<div className="login__socials">

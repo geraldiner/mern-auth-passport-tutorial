@@ -26,15 +26,12 @@ const App = () => {
 			<div className="app">
 				<div className="app__body">
 					<Navbar />
-					{!user ? (
-						<Switch>
-							<Route exact path="/" component={Landing} />
-							<Route exact path="/login" component={Login} />
-							<Route exact path="/signup" component={Signup} />{" "}
-						</Switch>
-					) : (
-						<Dashboard />
-					)}
+					<Switch>
+						<Route exact path="/" component={Landing} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/signup" component={Signup} />
+						<Route exact path="/dashboard" component={Dashboard} />
+					</Switch>
 				</div>
 			</div>
 		</Router>
