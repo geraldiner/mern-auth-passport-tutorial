@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectUser } from "./features/appSlice";
 
 /* Components */
 import Navbar from "./components/Navbar";
@@ -11,24 +9,17 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 const App = ({ history }) => {
-	const user = useSelector(selectUser);
-
 	return (
 		<Router>
 			<div className="app">
 				<div className="app__body">
 					<Navbar />
-					{!user ? (
-						<Switch>
-							<Route exact path="/" component={Landing} />
-							<Route exact path="/login" component={Login} />
-							<Route exact path="/signup" component={Signup} />
-						</Switch>
-					) : (
-						<Switch>
-							<Route exact path="/dashboard" component={Dashboard} />
-						</Switch>
-					)}
+					<Switch>
+						<Route exact path="/" component={Landing} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/signup" component={Signup} />
+						<Route exact path="/dashboard" component={Dashboard} />
+					</Switch>
 				</div>
 			</div>
 		</Router>

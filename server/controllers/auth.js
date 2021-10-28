@@ -1,18 +1,20 @@
-const passport = require("passport");
 const User = require("../models/User");
 
 module.exports = {
 	postSignup: async (req, res, next) => {
 		const { name, email, password } = req.body;
-
 		try {
-			const user = await User.create({
-				name,
-				email,
-				password,
-			});
-			const token = await user.getSignedToken();
-			res.status(201).json({ success: true, token });
+			let user = await User.findOne({ email }).exec();
+			if (user) {
+				res.status(401).json({ success: false, message: "An account with this email already exists" });
+			} else {
+				user = await User.create({
+					name,
+					email,
+					password,
+				});
+				res.status(201).json({ success: true, user: { name: user.name, email: user.email } });
+			}
 		} catch (error) {
 			next(error);
 		}
@@ -28,9 +30,8 @@ module.exports = {
 			if (user) {
 				const isMatch = await user.comparePassword(password);
 				if (isMatch) {
-					const signedToken = await user.getSignedToken();
 					const { name, email } = user;
-					res.status(200).json({ success: true, token: `Bearer ${signedToken}`, user: { name, email } });
+					res.status(200).json({ success: true, user: { name, email } });
 				} else {
 					res.status(400).json({ success: false, message: "Password is incorrect" });
 				}

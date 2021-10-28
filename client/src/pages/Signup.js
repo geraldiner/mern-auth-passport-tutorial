@@ -1,13 +1,6 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 
-const Signup = ({ history }) => {
-	const user = useSelector(state => state.app.user);
-	useEffect(() => {
-		if (user) {
-			console.log("signup", user);
-		}
-	}, [user]);
+const Signup = () => {
 	return (
 		<div className="main">
 			<h2>Sign up for an account today!</h2>

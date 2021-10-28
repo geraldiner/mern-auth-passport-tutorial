@@ -26,11 +26,11 @@ const Login = ({ history }) => {
 				password,
 			});
 			if (res.data.success) {
-				localStorage.setItem("user", JSON.stringify({ token: res.data.token, ...res.data.user }));
+				const user = res.data.user;
 				dispatch(
 					login({
-						name: res.data.user.name,
-						email: res.data.user.email,
+						name: user.name,
+						email: user.email,
 					}),
 				);
 				history.push("/dashboard");

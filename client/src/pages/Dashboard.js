@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/appSlice";
 
-const Dashboard = ({ history }) => {
+const Dashboard = () => {
 	const user = useSelector(selectUser);
-
 	return (
 		<div className="main">
 			<div className="dashboard">
@@ -13,7 +12,7 @@ const Dashboard = ({ history }) => {
 					<h2>Hello, {user.name}</h2>
 					<p>Here's your info:</p>
 					<ul>
-						<li>{user.email}</li>
+						<li>Email: {user.email}</li>
 					</ul>
 				</div>
 			</div>

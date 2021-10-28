@@ -4,13 +4,12 @@ import { selectUser } from "../features/appSlice";
 
 const Landing = ({ history }) => {
 	const user = useSelector(selectUser);
-	console.log("landing", user);
+
 	useEffect(() => {
 		if (user) {
-			console.log(user);
 			history.push("/dashboard");
 		}
-	}, [user, history]);
+	}, []);
 	return (
 		<div className="main">
 			<div className="landing">
