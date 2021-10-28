@@ -1,13 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { postSignup, postLogin } = require("../controllers/auth");
+const { postSignup, postLogin, getTwitchLogin, processTwitchLogin } = require("../controllers/auth");
 
 // @desc    Process sign up form
 // @route   POST /auth/signup
-router.use("/signup", postSignup);
+router.post("/signup", postSignup);
 
 // @desc    Process log in form
 // @route   POST /auth/login
-router.use("/login", postLogin);
+router.post("/login", postLogin);
+
+// @desc    Process twitch login
+// @route   post /auth/twitch/callback
+router.post("/twitch/callback", processTwitchLogin);
 
 module.exports = router;

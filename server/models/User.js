@@ -5,16 +5,24 @@ const jwt = require("jsonwebtoken");
 const UserSchema = mongoose.Schema({
 	name: {
 		type: String,
-		required: [true, "Please provide a name."],
+		required: true,
+		trim: true,
 	},
 	email: {
 		type: String,
-		required: [true, "Please provide an email."],
+		trim: true,
+		required: true,
 		unique: true,
 	},
 	password: {
 		type: String,
-		required: [true, "Please provide a password."],
+		required: true,
+	},
+	twitchData: {
+		id: String,
+		login: String,
+		description: String,
+		profileImageUrl: String,
 	},
 	resetPasswordToken: String,
 	resetPasswordExpire: Date,

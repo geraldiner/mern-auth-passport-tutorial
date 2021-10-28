@@ -122,12 +122,9 @@ const Signup = () => {
 				<div className="signup__socials">
 					<p className="text-white">Or sign up with an existing account</p>
 
-					<button type="button" className="button text-white bg-google hover:bg-white hover:text-gray-900">
-						Sign up with Google
-					</button>
-					<button type="button" className="button text-white bg-twitch hover:bg-white hover:text-gray-900">
+					<a href="http://localhost:8888/auth/twitch/" className="button text-white bg-twitch hover:bg-white hover:text-gray-900">
 						Sign up with Twitch
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>

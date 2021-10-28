@@ -12,6 +12,7 @@ const Login = () => {
 	const history = useHistory();
 
 	const url = "http://localhost:8888/auth/login";
+	const twitchUrl = `https://id.twitch.tv/oauth2/authorize?client_id=${process.env.REACT_APP_TWITCH_CLIENT_ID}&redirect_uri=http://localhost:3000/auth/twitch&response_type=code&scope=user:read:email`;
 
 	const handleChange = e => {
 		if (e.target.name === "email") {
@@ -93,12 +94,9 @@ const Login = () => {
 				<div className="login__socials">
 					<p className="text-white">Or log in with an existing account</p>
 
-					<button type="button" className="button text-white bg-google hover:bg-white hover:text-gray-900">
-						Log in with Google
-					</button>
-					<button type="button" className="button text-white bg-twitch hover:bg-white hover:text-gray-900">
+					<a href={twitchUrl} className="button text-white bg-twitch hover:bg-white hover:text-gray-900">
 						Log in with Twitch
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
