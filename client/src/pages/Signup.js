@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import { login } from "../features/appSlice";
 
+import Button from "../components/Button";
+
 const Signup = () => {
 	const [formData, setFormData] = useState({
 		name: "",
@@ -14,9 +16,6 @@ const Signup = () => {
 	});
 	const dispatch = useDispatch();
 	const history = useHistory();
-
-	const url = "http://localhost:8888/auth/signup";
-	const twitchUrl = `https://id.twitch.tv/oauth2/authorize?client_id=${process.env.REACT_APP_TWITCH_CLIENT_ID}&redirect_uri=http://localhost:3000/auth/twitch&response_type=code&scope=user:read:email`;
 
 	const handleChange = e => {
 		const { name, value } = e.target;
@@ -33,7 +32,7 @@ const Signup = () => {
 		} else {
 			try {
 				const { name, email, password } = formData;
-				const res = await Axios.post(url, {
+				const res = await Axios.post(process.env.REACT_APP_API_URI, {
 					name,
 					email,
 					password,
@@ -123,9 +122,7 @@ const Signup = () => {
 				<div className="signup__socials">
 					<p className="text-white">Or sign up with an existing account</p>
 
-					<a href={twitchUrl} className="button text-white bg-twitch hover:bg-white hover:text-gray-900">
-						Sign up with Twitch
-					</a>
+					<Button link={process.env.REACT_APP_TWITCH_AUTH_URI} text="Sign up with Twitch" />
 				</div>
 			</div>
 		</div>

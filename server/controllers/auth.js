@@ -48,7 +48,7 @@ module.exports = {
 		const { code } = req.body;
 		if (code) {
 			try {
-				const url = `https://id.twitch.tv/oauth2/token?client_id=${process.env.TWITCH_CLIENT_ID}&client_secret=${process.env.TWITCH_CLIENT_SECRET}&code=${code}&grant_type=authorization_code&redirect_uri=http://localhost:3000/auth/twitch`;
+				const url = `https://id.twitch.tv/oauth2/token?client_id=${process.env.TWITCH_CLIENT_ID}&client_secret=${process.env.TWITCH_CLIENT_SECRET}&code=${code}&grant_type=authorization_code&redirect_uri=http://localhost:3000/dashboard`;
 				const twitchRes = await axios.post(url);
 				const { access_token, expires_in, refresh_token, scope, token_type } = twitchRes.data;
 				const twitchFetchRes = await getUserTwitchData(access_token);

@@ -10,7 +10,6 @@ import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Auth from "./pages/Auth";
 
 const App = () => {
 	const user = useSelector(selectUser);
@@ -29,7 +28,6 @@ const App = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/" component={Landing} />
-						<Route exact path="/auth/twitch" component={Auth} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/signup" component={Signup} />
 						<Route exact path="/dashboard" component={Dashboard} />
