@@ -12,15 +12,15 @@ The backend is built with Node and Express and uses MongoDB for database storage
 
 ## Optimizations
 
-As with a lot of React projects, there was a lot of refactoring when it comes to components. For example, the log in and sign up buttons are virtually the same, it's just the text that changes. So
-
-_(optional)_
-
-You don't have to include this section but interviewers _love_ that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+As with a lot of React projects, there was a lot of refactoring when it comes to components. For example the buttons are virtually the same except for the colors, text, and `href`, or where the user is being sent to. Some of this can be handled by CSS, and for the rest, I just turned into a `Button` component.
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those _whoa this is awesome_ or _fuck yeah I did it!_ moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+Since this was a simple learning project, there were definitely a lot of things learned. Especially in dealing with Redux, which I got a lot of help from after posting on Twitter. My understanding is still a little fuzzy, but it makes more sense now than when I was just blindly following tutorials.
+
+Speaking of tutorials, in this project, I also challenged myself to only read from official documentation. This was so I could practice finding solutions on my own instead of hacking together a Frankenstein solution that had bits and pieces from all over.
+
+I'm still wrapping my head around protected routes and how to persist the state after reloading. My guess is making use of `localStorage`, but I'm not sure yet.
 
 ## Other Projects
 
