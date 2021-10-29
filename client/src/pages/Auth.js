@@ -39,7 +39,6 @@ const Auth = () => {
 
 	return (
 		<>
-			<p>{code}</p>
 			{isLoading ? (
 				<h1>Sorry, still loading</h1>
 			) : (
