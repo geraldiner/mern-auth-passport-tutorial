@@ -2,7 +2,7 @@
 
 This was a short project to learn how to use PassportJS for authentication on the MERN stack. Users can sign up and login by email or Twitch.
 
-## How It's Made:
+## How It's Made
 
 **Tech used:** HTML, CSS, JavaScript, NodeJS, ExpressJS, ReactJS, ReduxJS, TailwindCSS
 
@@ -14,7 +14,7 @@ The backend is built with Node and Express and uses MongoDB for database storage
 
 As with a lot of React projects, there was a lot of refactoring when it comes to components. For example the buttons are virtually the same except for the colors, text, and `href`, or where the user is being sent to. Some of this can be handled by CSS, and for the rest, I just turned into a `Button` component.
 
-## Lessons Learned:
+## Lessons Learned
 
 Since this was a simple learning project, there were definitely a lot of things learned. Especially in dealing with Redux, which I got a lot of help from after posting on Twitter. My understanding is still a little fuzzy, but it makes more sense now than when I was just blindly following tutorials.
 
