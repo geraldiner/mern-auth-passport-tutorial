@@ -23,6 +23,7 @@ Speaking of tutorials, in this project, I also challenged myself to only read fr
 I'm still wrapping my head around protected routes and how to persist the state after reloading. My guess is making use of `localStorage`, but I'm not sure yet.
 
 
+
 ## Other Projects
 
 Check out other stuff I've worked on:
@@ -34,5 +35,3 @@ Check out other stuff I've worked on:
 **Snapchat Clone:** https://github.com/geraldiner/snapchat-clone
 
 **K.K. Radio:** https://github.com/geraldiner/kk-radio
-
-**Interactive Piano:** https://github.com/geraldiner/piano
