@@ -21,26 +21,6 @@ Since this was a simple learning project, there were definitely a lot of things 
 Speaking of tutorials, in this project, I also challenged myself to only read from official documentation. This was so I could practice finding solutions on my own instead of hacking together a Frankenstein solution that had bits and pieces from all over.
 
 I'm still wrapping my head around protected routes and how to persist the state after reloading. My guess is making use of `localStorage`, but I'm not sure yet.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 🚀 Other Projects
 
 Check out other stuff I've worked on:
